@@ -19,6 +19,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,25 +31,22 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        NumbersClickListener clickListener = new NumbersClickListener();
+        TextView numbers = (TextView) findViewById(R.id.numbers);
+        numbers.setOnClickListener(clickListener);
+
+        ColorsClickListener colorsClickListener = new ColorsClickListener();
+        TextView colors = (TextView) findViewById(R.id.colors);
+        colors.setOnClickListener(colorsClickListener);
+
+        FamilyClickListener familyClickListener = new FamilyClickListener();
+        TextView family = (TextView) findViewById(R.id.family);
+        family.setOnClickListener(familyClickListener);
+
+        PhrasesClickListener phrasesClickListener = new PhrasesClickListener();
+        TextView phrases = (TextView) findViewById(R.id.phrases);
+        phrases.setOnClickListener(phrasesClickListener);
     }
 
-    public void openNumbersList(View view) {
-        Intent intent = new Intent(this,NumbersActivity.class);
-        startActivity(intent);
-    }
-
-    public void openColorsList(View view) {
-        Intent intent = new Intent(this,ColorsActivity.class);
-        startActivity(intent);
-    }
-
-    public void openFamilyList(View view) {
-        Intent intent = new Intent(this,FamilyActivity.class);
-        startActivity(intent);
-    }
-
-    public void openPhrasesList(View view) {
-        Intent intent = new Intent(this,PhrasesActivity.class);
-        startActivity(intent);
-    }
 }
