@@ -8,52 +8,56 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class NumbersActivity extends AppCompatActivity {
 
-    String[] words = new String[10];
-    String[] miwok = new String[10];
+    //String[] words = new String[10];
+    //String[] miwok = new String[10];
+    ArrayList<String> words = new ArrayList<>();
+    ArrayList<String> miwok = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
-        fillArrayNumbers();
+        fillListArrayNumbers();
 
         LinearLayout rootView = (LinearLayout) findViewById(R.id.activity_numbers);
 
-        for(int index=0; index < words.length; index++){
+        for(int index=0; index < words.size(); index++){
             TextView wordView = new TextView(this);
             if(index%2 == 0)
                 //Most significant byte in RGB value should be FF, transparency bits
                 wordView.setBackgroundColor(0xFFFD8E09);
             wordView.setPadding(0, 0, 0, 24);
-            wordView.setText(words[index] + "\n" + miwok[index]);
+            wordView.setText(words.get(index) + "\n" + miwok.get(index));
             rootView.addView(wordView);
         }
 
     }
 
-    private void fillArrayNumbers(){
-        words[0] = getString(R.string.number_one);
-        words[1] = getString(R.string.number_two);
-        words[2] = getString(R.string.number_three);
-        words[3] = getString(R.string.number_four);
-        words[4] = getString(R.string.number_five);
-        words[5] = getString(R.string.number_six);
-        words[6] = getString(R.string.number_seven);
-        words[7] = getString(R.string.number_eight);
-        words[8] = getString(R.string.number_nine);
-        words[9] = getString(R.string.number_ten);
+    private void fillListArrayNumbers(){
+        words.add(getString(R.string.number_one));
+        words.add(getString(R.string.number_two));
+        words.add(getString(R.string.number_three));
+        words.add(getString(R.string.number_four));
+        words.add(getString(R.string.number_five));
+        words.add(getString(R.string.number_six));
+        words.add(getString(R.string.number_seven));
+        words.add(getString(R.string.number_eight));
+        words.add(getString(R.string.number_nine));
+        words.add(getString(R.string.number_ten));
 
-        miwok[0] = "lutti";
-        miwok[1] = "otiiko";
-        miwok[2] = "tolookosu";
-        miwok[3] = "oyyisa";
-        miwok[4] = "massokka";
-        miwok[5] = "temmokka";
-        miwok[6] = "kenekaku";
-        miwok[7] = "kawinta";
-        miwok[8] = "wo’e";
-        miwok[9] = "na’aacha";
+        miwok.add("lutti");
+        miwok.add("otiiko");
+        miwok.add("tolookosu");
+        miwok.add("oyyisa");
+        miwok.add("massokka");
+        miwok.add("temmokka");
+        miwok.add("kenekaku");
+        miwok.add("kawinta");
+        miwok.add("wo’e");
+        miwok.add("na’aacha");
     }
 }
