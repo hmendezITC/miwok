@@ -12,10 +12,7 @@ import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
-    //String[] words = new String[10];
-    //String[] miwok = new String[10];
-    ArrayList<String> words = new ArrayList<>();
-    ArrayList<String> miwok = new ArrayList<>();
+    ArrayList<Translator> words = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,33 +28,22 @@ public class NumbersActivity extends AppCompatActivity {
                 //Most significant byte in RGB value should be FF, transparency bits
                 wordView.setBackgroundColor(0xFFFD8E09);
             wordView.setPadding(0, 0, 0, 24);
-            wordView.setText(words.get(index) + "\n" + miwok.get(index));
+            wordView.setText(words.get(index).getDefaultLanguage() + "\n" + words.get(index).getMiwok());
             rootView.addView(wordView);
         }
 
     }
 
     private void fillListArrayNumbers(){
-        words.add(getString(R.string.number_one));
-        words.add(getString(R.string.number_two));
-        words.add(getString(R.string.number_three));
-        words.add(getString(R.string.number_four));
-        words.add(getString(R.string.number_five));
-        words.add(getString(R.string.number_six));
-        words.add(getString(R.string.number_seven));
-        words.add(getString(R.string.number_eight));
-        words.add(getString(R.string.number_nine));
-        words.add(getString(R.string.number_ten));
-
-        miwok.add("lutti");
-        miwok.add("otiiko");
-        miwok.add("tolookosu");
-        miwok.add("oyyisa");
-        miwok.add("massokka");
-        miwok.add("temmokka");
-        miwok.add("kenekaku");
-        miwok.add("kawinta");
-        miwok.add("wo’e");
-        miwok.add("na’aacha");
+        words.add(new Translator(getString(R.string.number_one), "lutti"));
+        words.add(new Translator(getString(R.string.number_two),"otiiko"));
+        words.add(new Translator(getString(R.string.number_three), "tolookosu"));
+        words.add(new Translator(getString(R.string.number_four), "oyyisa"));
+        words.add(new Translator(getString(R.string.number_five), "massokka"));
+        words.add(new Translator(getString(R.string.number_six), "temmokka"));
+        words.add(new Translator(getString(R.string.number_seven), "kenekaku"));
+        words.add(new Translator(getString(R.string.number_eight), "kawinta"));
+        words.add(new Translator(getString(R.string.number_nine), "wo’e"));
+        words.add(new Translator(getString(R.string.number_ten), "na’aacha"));
     }
 }
